@@ -55,10 +55,11 @@ header ul.menu {
   height: 44px;
   justify-content: space-between;
 }
-header ul.menu li {
+header ul.menu > li {
+  position: relative;
   display: flex;
 }
-header ul.menu li a {
+header ul.menu > li a {
   padding: 0 10px;
   font-size: 11px;
   display: flex;
@@ -68,23 +69,45 @@ header ul.menu li a {
   text-decoration: none;
 }
 
-header ul.menu li.apple-logo a,
-header ul.menu li.search-starter a,
-header ul.menu li.basket-starter a {
+header ul.menu > li.apple-logo > a,
+header ul.menu > li.search-starter > a,
+header ul.menu > li.basket-starter > a {
   width: 14px;
   text-indent: -9999;
   background-repeat: no-repeat;
   background-position: center 13px;
 }
-header ul.menu li.apple-logo a {
+header ul.menu > li.apple-logo > a {
   background-image: url("../images/header_apple.svg");
 }
-header ul.menu li.search-starter a {
+header ul.menu > li.search-starter > a {
   background-image: url("../images/header_search.svg");
 }
-header ul.menu li.basket-starter a {
+header ul.menu > li.basket-starter > a {
   background-image: url("../images/header_bag.svg");
 }
-header ul.menu li a:hover {
+header ul.menu > li > a:hover {
   opacity: 1;
+}
+
+/* HEADER / Menu / Basket */
+
+header .basket {
+  width: 290px;
+  padding: 10px 20px;
+  border: 1px solid #d2d2d2;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: -6px;
+}
+header .basket .message {
+}
+header .basket ul {
+}
+header .basket ul li {
+}
+header .basket ul li a {
 }
