@@ -36,14 +36,36 @@ img {
 p {
   line-height: 1.6;
 }
+.material-symbols-outlined {
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* Header */
 header {
+  background-color: #3a3a3a;
 }
 header .inner {
+  max-width: 1020px;
+  margin: 0 auto;
 }
 header ul.menu {
+  display: flex;
+  height: 44px;
+  justify-content: space-between;
 }
 header ul.menu li {
+  display: flex;
 }
 header ul.menu li a {
+  padding: 0 10px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  color: #f5f5f5;
+  opacity: 0.8;
+}
+header ul.menu li a:hover {
+  opacity: 1;
 }
