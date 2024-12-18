@@ -37,14 +37,12 @@ p {
   line-height: 1.6;
 }
 
-
 .material-symbols-outlined {
   font-weight: 200;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 
 /* Header */
 header {
@@ -106,6 +104,10 @@ header .basket {
   position: absolute;
   top: calc(100% + 4px);
   right: -6px;
+  display: none;
+}
+header .basket.show {
+  display: block;
 }
 header .basket .arrow {
   width: 20px;
