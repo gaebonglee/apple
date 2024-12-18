@@ -18,6 +18,7 @@ html.fixed {
   width: 100%;
 }
 body {
+  height: 10000px;
   color: var(--color-font);
   font-size: 16px;
   line-height: 1;
