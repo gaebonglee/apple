@@ -157,6 +157,7 @@ header .basket ul li a:hover {
 
 /* Header / Search */
 header .search-wrap {
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -245,4 +246,7 @@ header .search .autocompletes ul li:hover a {
 
 header.searching ul.menu > li {
   display: none;
+}
+header.searching .search-wrap {
+  display: block;
 }
