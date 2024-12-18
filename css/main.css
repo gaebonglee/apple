@@ -36,12 +36,16 @@ img {
 p {
   line-height: 1.6;
 }
+
+
 .material-symbols-outlined {
   font-weight: 200;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
+
 /* Header */
 header {
   background-color: #3a3a3a;
@@ -103,11 +107,44 @@ header .basket {
   top: calc(100% + 4px);
   right: -6px;
 }
+header .basket .arrow {
+  width: 20px;
+  height: 10px;
+  overflow: hidden;
+  position: absolute;
+  top: -10px;
+  right: 12px;
+}
+header .basket .arrow::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 1px solid #d2d2d2;
+  background-color: #fff;
+  transform: rotate(45deg);
+  transform-origin: 0 0;
+  position: absolute;
+  top: 0;
+  left: 50%;
+}
 header .basket .message {
+  padding: 30px 0;
+  font-size: 13px;
+  color: #6e6e6e;
+  text-align: center;
 }
 header .basket ul {
+  margin-top: 10px;
 }
 header .basket ul li {
+  border-top: 1px solid #d2d2d2;
 }
 header .basket ul li a {
+  display: block;
+  padding: 14px;
+  font-size: 13px;
+  color: #0071e3;
+}
+header .basket ul li a:hover {
+  text-decoration: underline;
 }
