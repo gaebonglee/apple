@@ -29,6 +29,7 @@ function hideBasket() {
 
 // 검색!!
 const headerEl = document.querySelector("header");
+const hedaerMenuEls = [...headerEl.querySelectorAll("ul.menu > li")];
 const searchWrapEl = headerEl.querySelector(".search-wrap");
 const searchStarterEl = headerEl.querySelector(".search-starter");
 const searchCloserEl = searchWrapEl.querySelector(".search-closer");
@@ -41,8 +42,14 @@ searchShadowEl.addEventListener("click", hideSearch);
 function showSearch() {
   headerEl.classList.add("searching");
   document.documentElement.classList.add("fixed");
+  hedaerMenuEls.reverse().forEach(function (el, index) {
+    el.style.transitionDelay = (index * 0.4) / hedaerMenuEls.length + "s";
+  });
 }
 function hideSearch() {
   headerEl.classList.remove("searching");
   document.documentElement.classList.remove("fixed");
+  hedaerMenuEls.reverse().forEach(function (el, index) {
+    el.style.transitionDelay = (index * 0.4) / hedaerMenuEls.length + "s";
+  });
 }
