@@ -248,6 +248,14 @@ header .search .autocompletes ul li:hover a {
   color: #0071e3;
 }
 
+header .search input,
+header .search .search-icon,
+header .search .autocompletes h3,
+header .search .autocompletes li {
+  transition: 0.6s;
+  transform: translate(100px, 0);
+}
+
 header.searching ul.menu > li {
   transform: scale(0.7);
   opacity: 0;
@@ -256,4 +264,12 @@ header.searching .search-wrap {
   visibility: visible;
   opacity: 1;
   transition-delay: 0.4s;
+}
+
+header.searching input,
+header.searching .search-icon,
+header.searching .autocompletes h3,
+header.searching .autocompletes li {
+  transform: translate(0, 0);
+  transition-delay: 0.2s;
 }
