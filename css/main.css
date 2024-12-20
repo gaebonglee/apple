@@ -84,6 +84,22 @@ a.link:hover {
 a.link::after {
   content: ">";
 }
+
+/* Figures */
+.figures {
+  position: relative;
+}
+.figures figure,
+.figures figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.figures figcaption * {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 /* Background image text */
 .bgtext {
   display: block;
@@ -104,13 +120,15 @@ a.link::after {
 /* Header */
 header {
   background-color: #3a3a3a;
+  position: relative;
+  z-index: 9;
 }
 header .inner {
   max-width: 1020px;
 }
 header ul.menu {
   display: flex;
-  height: 44px;
+  height: 45px;
   justify-content: space-between;
 }
 header ul.menu > li {
@@ -381,14 +399,34 @@ nav .menu li.active:hover a {
   width: 220px;
   height: 91px;
   background-image: url("../images/hero_ipad_text.png");
+  position: absolute;
+  transform: translate(624px, 235px);
+  z-index: 1;
 }
-.hero figure figcaption {
+.hero .figures {
+  height: 808px;
 }
+.hero figure {
+  transform: translate(74px, -64px);
+}
+
 .hero figure figcaption .caption-camera {
+  background-image: url("../images/hero_ipad_caption_camera.png");
+  width: 120px;
+  height: 84px;
+  transform: translate(43px, 580px);
 }
 .hero figure figcaption .caption-chip {
+  background-image: url("../images/hero_ipad_caption_chip.png");
+  width:95px;
+  height: 43px;
+  transform: translate(589px, 510px);
 }
 .hero figure figcaption .caption-storage {
+  background-image: url("../images/hero_ipad_caption_storage.png");
+  width: 80px;
+  height: 43px;
+  transform: translate(627px, 631px);
 }
 .hero h2 {
   width: 738px;
