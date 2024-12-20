@@ -50,8 +50,9 @@ function showSearch() {
   searchDelayEls.forEach(function (el, index) {
     el.style.transitionDelay = (index * 0.4) / searchDelayEls.length + "s";
   });
-  setTimeout(function () {
-    searchInputEl.focus();
+  // 검색 인풋 요소가 나타난 후 동작!
+  setTimeout(() => {
+    searchInputEl.focus()
   }, 600);
 }
 function hideSearch() {
