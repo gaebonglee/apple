@@ -38,12 +38,7 @@ p {
   line-height: 1.6;
 }
 
-.material-symbols-outlined {
-  font-weight: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* btn */
 .btn {
   display: flex;
   justify-content: center;
@@ -65,6 +60,15 @@ p {
 .btn:focus {
   box-shadow: 0 0 0 4px #81b9f1;
 }
+
+/* material-symbols */
+.material-symbols-outlined {
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Header */
 header {
   background-color: #3a3a3a;
