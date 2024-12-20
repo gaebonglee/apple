@@ -52,7 +52,7 @@ function showSearch() {
   });
   // 검색 인풋 요소가 나타난 후 동작!
   setTimeout(() => {
-    searchInputEl.focus()
+    searchInputEl.focus();
   }, 600);
 }
 function hideSearch() {
@@ -66,4 +66,5 @@ function hideSearch() {
   });
   //hideSearch에서 reverse 된 채로 끝나면 showSearch에서 revese된 채로 다시 실행되니 ' searchDelayEls.reverse()'를 추가해야함!
   searchDelayEls.reverse();
+  searchInputEl.value = "";
 }
