@@ -121,6 +121,9 @@ a.link::after {
 .info {
   max-width: 330px;
   margin-bottom: 24px;
+  /* transition: 1s; */
+  transform: translate(0, 100px);
+  /* opacity: 0; */
 }
 .info .icon {
   width: 100px;
@@ -424,7 +427,7 @@ nav .menu li.active:hover a {
 
 /* Hero */
 .hero {
-  background-color: #f5f5f5;
+  background-color: var(--color-section);
 }
 .hero .inner {
   padding-bottom: 110px;
@@ -491,20 +494,20 @@ nav .menu li.active:hover a {
 .power {
   margin-top: 110px;
 }
-/* Power / Multiple */
+/* Power / Multiple Apps */
 .power .multiple-apps h1 {
-  background-image: url("../images/power_headline.png");
   width: 500px;
   height: 280px;
+  background-image: url("../images/power_headline.png");
   transform: translate(104px, 0);
 }
-.power .multiple-apps figure {
+.power .multiple-apps .figures {
   height: 773px;
 }
 .power .multiple-apps figcaption {
-  background-image: url("../images/power_multiple_apps_caption.png");
   width: 138px;
   height: 46px;
+  background-image: url("../images/power_multiple_apps_caption.png");
   transform: translate(703px, -47px);
 }
 /* Power / Arcade */
