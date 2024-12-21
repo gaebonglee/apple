@@ -84,9 +84,13 @@ a.link:hover {
 a.link::after {
   content: ">";
 }
-
+/* Feature */
+.feature {
+  display: flex;
+}
 /* Figures */
 .figures {
+  flex-grow: 1;
   position: relative;
 }
 .figures figure,
@@ -99,6 +103,35 @@ a.link::after {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/* Infos */
+.infos {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+}
+.infos.infos--center {
+  justify-content: center;
+}
+.infos.infos--end {
+  justify-content: flex-end;
+}
+.info {
+  max-width: 330px;
+  margin-bottom: 24px;
+}
+.info .icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 0 -15px -30px;
+  background-image: url("../images/sprite_apps.png");
+}
+.info p {
+  font-size: 21.5px;
+  font-weight: 600;
+  line-height: 1.5;
 }
 /* Background image text */
 .bgtext {
@@ -119,7 +152,7 @@ a.link::after {
 
 /* Header */
 header {
-  --header-height: 44px;
+  --header-height: 45px;
   background-color: var(--color-header);
   position: relative;
   z-index: 9;
@@ -452,4 +485,57 @@ nav .menu li.active:hover a {
   margin-top: 30px;
 }
 .hero .links .link {
+}
+
+/* Power */
+.power {
+  margin-top: 110px;
+}
+/* Power / Multiple */
+.power .multiple-apps h1 {
+  background-image: url("../images/power_headline.png");
+  width: 500px;
+  height: 280px;
+  transform: translate(104px, 0);
+}
+.power .multiple-apps figure {
+  height: 773px;
+}
+.power .multiple-apps figcaption {
+  background-image: url("../images/power_multiple_apps_caption.png");
+  width: 138px;
+  height: 46px;
+  transform: translate(703px, -47px);
+}
+/* Power / Arcade */
+.power .arcade {
+  margin-top: 55px;
+}
+.power .arcade .figures {
+  height: 600px;
+}
+.power .arcade figure {
+  transform: translate(-347px, -90px);
+}
+.power .arcade figcaption {
+  width: 150px;
+  height: 77px;
+  background-image: url("../images/power_arcade_caption.png");
+  transform: translate(483px, 653px);
+}
+/* Power / Create */
+.power .create {
+  margin-top: 55px;
+}
+.power .create .figures {
+  height: 772px;
+}
+.power .create figure {
+  transform: translate(-25px, 50px);
+}
+.power .create figcaption {
+  width: 142px;
+  height: 46px;
+  background-image: url("../images/power_create_caption.png");
+  transform: translate(543px, 908px);
 }
