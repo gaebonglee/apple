@@ -1,3 +1,5 @@
+import ipads from "./ipads";
+
 // 장바구니 !!
 const basketStarterEl = document.querySelector("header .basket-starter");
 const basketEl = document.querySelector("header .basket");
@@ -99,4 +101,14 @@ pauseBtn.addEventListener("click", function () {
   video.pause();
   playBtn.classList.remove("hide");
   pauseBtn.classList.add("hide");
+});
+
+// '당신에게 맞는 iPad는?' 랜더링!
+const itemEl = document.querySelector("section.compare .items");
+ipads.forEach(function (ipad) {
+  const itemEl = document.createElement("div");
+  itemEl.classList.add("item");
+  itemEl.textContent = '<div style="color : red">hello</div>';
+
+  itemEl.append(itemEl);
 });
