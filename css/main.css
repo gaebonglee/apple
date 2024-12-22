@@ -24,6 +24,10 @@ body {
   word-break: keep-all;
   font-family: "Roboto", "Noto Sans KR", sans-serif;
 }
+main {
+  overflow-x: hidden;
+}
+
 a {
   color: var(--color-font);
   text-decoration: none;

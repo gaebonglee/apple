@@ -1,4 +1,5 @@
-import ipads from "./ipads.js";
+import ipads from "../data/ipads.js";
+import navigations from "../data/navigations.js";
 
 // 장바구니 !!
 const basketStarterEl = document.querySelector("header .basket-starter");
@@ -104,15 +105,15 @@ pauseBtn.addEventListener("click", function () {
 });
 
 // '당신에게 맞는 iPad는?' 랜더링!
-const itemsEl = document.querySelector('section.compare .items')
-ipads.forEach(ipad => {
-  const itemEl = document.createElement('div')
-  itemEl.classList.add('item')
+const itemsEl = document.querySelector("section.compare .items");
+ipads.forEach((ipad) => {
+  const itemEl = document.createElement("div");
+  itemEl.classList.add("item");
 
-  let colorList = ''
-  ipad.colors.forEach(color => {
-    colorList += `<li style="background-color: ${color};"></li>`
-  })
+  let colorList = "";
+  ipad.colors.forEach((color) => {
+    colorList += `<li style="background-color: ${color};"></li>`;
+  });
 
   // VS Code 확장 프로그램 - Comment tagged templates
   itemEl.innerHTML = /* html */ `
@@ -124,11 +125,40 @@ ipads.forEach(ipad => {
     </ul>
     <h3 class="name">${ipad.name}</h3>
     <p class="tagline">${ipad.tagline}</p>
-    <p class="price">₩${ipad.price.toLocaleString('en-US')}부터</p>
+    <p class="price">₩${ipad.price.toLocaleString("en-US")}부터</p>
     <button class="btn">구입하기</button>
     <a href="${ipad.url}" class="link">더 알아보기</a>
-  `
+  `;
 
-  itemsEl.append(itemEl)
-})
+  itemsEl.append(itemEl);
+});
 
+// Navigations Js
+
+const navigationsEl = document.querySelector("footer .navigations");
+navigations.forEach(function (nav) {
+  const mapEl = document.createElement("div");
+  mapEl.classList.add("map");
+
+  let mapList = "";
+  nav.maps.forEach(function (map) {
+    mapList += /*html*/ `
+      <li>
+        <a href="${map.url}">${map.name}</a>
+      </li>`;
+  });
+  mapEl.innerHTML = /*html*/ `
+  <h3>
+    <span class="text">${nav.title}</span>
+  </h3>
+  <ul>
+    ${mapList}
+  </ul>
+    `;
+
+  navigationsEl.append(mapEl);
+});
+
+// 헤당 연도 Js
+const thisYearEl = document.querySelector("span.this-year");
+thisYearEl.textContent = new Date().getFullYear();
