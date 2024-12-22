@@ -1,4 +1,4 @@
-import ipads from "./ipads";
+import ipads from "./ipads.js";
 
 // 장바구니 !!
 const basketStarterEl = document.querySelector("header .basket-starter");
@@ -104,11 +104,27 @@ pauseBtn.addEventListener("click", function () {
 });
 
 // '당신에게 맞는 iPad는?' 랜더링!
-const itemEl = document.querySelector("section.compare .items");
-ipads.forEach(function (ipad) {
+const itemsEl = document.querySelector("section.compare .items");
+ipads.forEach((ipad) => {
   const itemEl = document.createElement("div");
   itemEl.classList.add("item");
-  itemEl.textContent = '<div style="color : red">hello</div>';
+  let colorList = "";
+  ipad.colors.forEach(function (color) {
+    colorList += `<li style="background-color:${color}></li>`;
+  });
+  itemEl.innerHTML = /*html*/ `
+  <div class="thumbnail">
+    <img src="${ipad.thumbnail}" alt="${ipad.name}"/>
+  </div>
+  <ul class="colors">
+  ${colorList}
+  </ul>
+  <h3 class="name">${ipad.name}</h3>
+  <p class="tagline">${ipad.tagline}</p>
+  <p class="price">${ipad.price}</p>
+  <button class="btn">구입하기</button>
+  <a href="${ipad.url}" class="link">더 알아보기</a>
+  `;
 
-  itemEl.append(itemEl);
+  itemsEl.append(itemEl);
 });
