@@ -1,20 +1,15 @@
-const photo = document.getElementById("moving-photo1");
+const video = document.getElementById("responsive-video");
 
-function updatePhotoPosition() {
+window.addEventListener("scroll", () => {
   const scrollY = window.scrollY; // 현재 스크롤 위치
-  const maxScroll = document.body.scrollHeight - window.innerHeight; // 최대 스크롤 높이
+  const maxScroll = window.innerHeight; // 최대 스크롤 값을 화면 높이로 설정
 
   // 스크롤 비율 계산 (0 ~ 1)
-  const scrollRatio = scrollY / maxScroll;
+  const scrollRatio = Math.min(scrollY / maxScroll, 1);
 
-  // 이동 및 크기 조정
-  const translateX = scrollRatio * window.innerWidth; // 가로 이동 거리
-  const translateY = -scrollRatio * window.innerHeight; // 세로 이동 거리
-  const scale = 1 - scrollRatio * 0.8; // 점점 작아짐 (최대 80% 감소)
+  // 크기 조정 (최소 크기는 0.5로 설정)
+  const scale = 1 - scrollRatio * 0.2;
 
-  // 사진 스타일 업데이트
-  photo.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-}
-
-// 스크롤 이벤트 연결
-window.addEventListener("scroll", updatePhotoPosition);
+  // 동영상 크기 조정
+  video.style.transform = `scale(${scale})`;
+});
