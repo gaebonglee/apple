@@ -1,15 +1,25 @@
-const video = document.getElementById("responsive-video");
+// ---- 메인 동영상 ---- \\
+
+// 스크롤에 따른 크기 변화 & BorderRadius 조절
+const mainVideoEl = document.getElementById("main-video-view");
+// const videoControllerEl = document.querySelector(".video-controller");
+
+const mainVideoMaxScale = 1.7;
+const mainVideominScale = 1.2;
+const maxBorderRadius = 30;
+const minBorderRadius = 0;
 
 window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY; // 현재 스크롤 위치
-  const maxScroll = window.innerHeight; // 최대 스크롤 값을 화면 높이로 설정
-
-  // 스크롤 비율 계산 (0 ~ 1)
+  const scrollY = window.scrollY;
+  const maxScroll = window.innerHeight;
   const scrollRatio = Math.min(scrollY / maxScroll, 1);
 
-  // 크기 조정 (최소 크기는 0.5로 설정)
-  const scale = 1 - scrollRatio * 0.2;
+  const scale =
+    mainVideoMaxScale - scrollRatio * (mainVideoMaxScale - mainVideominScale);
+  const borderRadius =
+    minBorderRadius + scrollRatio * (maxBorderRadius - minBorderRadius);
 
-  // 동영상 크기 조정
-  video.style.transform = `scale(${scale})`;
+  mainVideoEl.style.transform = `scale(${scale})`;
+  mainVideoEl.style.borderRadius = `${borderRadius}px`;
+
 });

@@ -91,11 +91,11 @@ infoEls.forEach(function (el) {
 
 // 스크롤에 따른 크기 변화 & BorderRadius 조절
 const mainVideoEl = document.getElementById("main-video-view");
-const videoController = document.querySelector(".main-video .video-controller");
+// const videoControllerEl = document.querySelector(".video-controller");
 
-const initialScale = 1.7;
-const minScale = 1.2;
-const maxBorderRadius = 20;
+const mainVideoMaxScale = 1.7;
+const mainVideominScale = 1.2;
+const maxBorderRadius = 30;
 const minBorderRadius = 0;
 
 window.addEventListener("scroll", () => {
@@ -103,68 +103,31 @@ window.addEventListener("scroll", () => {
   const maxScroll = window.innerHeight;
   const scrollRatio = Math.min(scrollY / maxScroll, 1);
 
-  const scale = initialScale - scrollRatio * (initialScale - minScale);
-  const borderRadius =
-    minBorderRadius + scrollRatio * (maxBorderRadius - minBorderRadius);
-
-  mainVideoEl.style.transform = `scale(${initialScale})`;
-  mainVideoEl.style.transform = `scale(${scale})`;
-  mainVideoEl.style.borderRadius = `${borderRadius}px`;
-});
-
-const updateControllerPosition = () => {
-  const videoBounds = mainVideoEl.getBoundingClientRect();
-  const videoControllerBounds = videoController.getBoundingClientRect();
-
-  const controllerX =
-    videoBounds.right - videoControllerBounds.width - videoBounds.width * 0.1;
-  const controllerY =
-    videoBounds.bottom -
-    videoControllerBounds.height -
-    videoBounds.height * 0.1;
-
-  videoController.style.transform = `translate(${
-    controllerX - videoBounds.left
-  }px, ${controllerY - videoBounds.top}px)`;
-};
-
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  const maxScroll = window.innerHeight;
-  const scrollRatio = Math.min(scrollY / maxScroll, 1);
-
-  const scale = initialScale - scrollRatio * (initialScale - minScale);
+  const scale =
+    mainVideoMaxScale - scrollRatio * (mainVideoMaxScale - mainVideominScale);
   const borderRadius =
     minBorderRadius + scrollRatio * (maxBorderRadius - minBorderRadius);
 
   mainVideoEl.style.transform = `scale(${scale})`;
   mainVideoEl.style.borderRadius = `${borderRadius}px`;
-
-  // 버튼 위치 업데이트
-  updateControllerPosition();
 });
 
-window.addEventListener("resize", updateControllerPosition);
+//재생 및 일시 정지 (추후 업데이트 예정)
+// const mainVideo = document.querySelector(".main-video video");
+// const playBtn = document.querySelector(".main-video .controller--play");
+// const pauseBtn = document.querySelector(".main-video .controller--pause");
 
-// 초기 위치 설정
-updateControllerPosition();
+// playBtn.addEventListener("click", function () {
+//   mainVideo.play();
+//   playBtn.classList.add("hide");
+//   pauseBtn.classList.remove("hide");
+// });
 
-//재생 및 일시 정지
-const mainVideo = document.querySelector(".main-video video");
-const playBtn = document.querySelector(".main-video .controller--play");
-const pauseBtn = document.querySelector(".main-video .controller--pause");
-
-playBtn.addEventListener("click", function () {
-  mainVideo.play();
-  playBtn.classList.add("hide");
-  pauseBtn.classList.remove("hide");
-});
-
-pauseBtn.addEventListener("click", function () {
-  mainVideo.pause();
-  playBtn.classList.remove("hide");
-  pauseBtn.classList.add("hide");
-});
+// pauseBtn.addEventListener("click", function () {
+//   mainVideo.pause();
+//   playBtn.classList.remove("hide");
+//   pauseBtn.classList.add("hide");
+// });
 
 // '당신에게 맞는 iPad는?' 랜더링!
 const itemsEl = document.querySelector("section.compare .items");

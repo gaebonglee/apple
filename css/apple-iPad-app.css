@@ -905,14 +905,14 @@ main {
 }
 
 /* Hero */
-.hero {
-  background-color: var(--color-section);
-}
+
 .hero .inner {
   padding-bottom: 110px;
 }
 
-.hero .section-title {
+.hero .title-area {
+  position: sticky; /* 타이틀 고정 */
+  top: 0;
   display: flex;
   justify-content: flex-start;
   padding-bottom: 80px;
@@ -922,7 +922,9 @@ main {
   font-size: 27px;
   font-weight: 600;
 }
-.hero .main-video-container {
+
+.hero .video-area,
+.hero .main-video {
   position: relative;
 }
 
@@ -930,15 +932,21 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scale(1.7);
 }
 
-.hero .main-video .video-controller {
+#video-controller {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  cursor: pointer;
   display: flex;
+  justify-content: center;
   align-items: center;
-  position: absolute;
-  right: 10%;
-  bottom: 10%;
-  transition: transform 0.2s ease;
 }
 
 .hero .main-video .controller--play.hide,
@@ -957,9 +965,6 @@ main {
   outline-offset: -3px;
   border-radius: 50%;
 }
-
-/* .hero h1 {
-} */
 
 @media (max-width: 1000px) {
   .hero .inner {
