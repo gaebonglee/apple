@@ -934,9 +934,11 @@ main {
 
 .hero .main-video .video-controller {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   position: absolute;
-  right: 40px;
+  right: 10%;
+  bottom: 10%;
+  transition: transform 0.2s ease;
 }
 
 .hero .main-video .controller--play.hide,

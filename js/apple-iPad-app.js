@@ -98,7 +98,35 @@ const minScale = 1.2;
 const maxBorderRadius = 20;
 const minBorderRadius = 0;
 
-mainVideoEl.style.transform = `scale(${initialScale})`;
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  const maxScroll = window.innerHeight;
+  const scrollRatio = Math.min(scrollY / maxScroll, 1);
+
+  const scale = initialScale - scrollRatio * (initialScale - minScale);
+  const borderRadius =
+    minBorderRadius + scrollRatio * (maxBorderRadius - minBorderRadius);
+
+  mainVideoEl.style.transform = `scale(${initialScale})`;
+  mainVideoEl.style.transform = `scale(${scale})`;
+  mainVideoEl.style.borderRadius = `${borderRadius}px`;
+});
+
+const updateControllerPosition = () => {
+  const videoBounds = mainVideoEl.getBoundingClientRect();
+  const videoControllerBounds = videoController.getBoundingClientRect();
+
+  const controllerX =
+    videoBounds.right - videoControllerBounds.width - videoBounds.width * 0.1;
+  const controllerY =
+    videoBounds.bottom -
+    videoControllerBounds.height -
+    videoBounds.height * 0.1;
+
+  videoController.style.transform = `translate(${
+    controllerX - videoBounds.left
+  }px, ${controllerY - videoBounds.top}px)`;
+};
 
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
@@ -111,7 +139,15 @@ window.addEventListener("scroll", () => {
 
   mainVideoEl.style.transform = `scale(${scale})`;
   mainVideoEl.style.borderRadius = `${borderRadius}px`;
+
+  // 버튼 위치 업데이트
+  updateControllerPosition();
 });
+
+window.addEventListener("resize", updateControllerPosition);
+
+// 초기 위치 설정
+updateControllerPosition();
 
 //재생 및 일시 정지
 const mainVideo = document.querySelector(".main-video video");
